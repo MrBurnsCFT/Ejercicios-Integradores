@@ -10,7 +10,7 @@ class Persona(ABC):
         self.cuenta = cuenta
         
     @abstractclassmethod
-    def mostrar(self):
+    def registrarse(self):
         pass
     
     
@@ -19,19 +19,24 @@ class Cuenta(Persona):
     def __init__(self, nombre, apellido, DNI, cuenta):
         super().__init__(nombre, apellido, DNI, cuenta)
         
-    def mostrar(self):
-        print('El detalle de la Cuenta es: ')
+    def registrarse(self):
+        print('El registro de la Cuenta se realizo con exito: ')
 
 
-class CuentaJovern(Persona):
-    def __init__(self, nombre, apellido, DNI, cuenta):
-        super().__init__(nombre, apellido, DNI, cuenta)
+class CuentaJoven(Persona):
+    def __init__(self, nombre, apellido, DNI, cuenta, bonificacion):
+        super().__init__(nombre, apellido, DNI, cuenta, bonificacion)
+        self.bonificacion = bonificacion
         
-    def mostrar(self):
-        print('El detalle de la Cuenta Joven es: ')
+    def registrarse(self):
+        print('El registro de la Cuenta Joven fue un exito: ')
 
 
+nueva_cuenta = Cuenta('Juan', 'Perez', 23456543, 345)
+nueva_cuenta.registrarse()
 
+nueva_cuentajoven = CuentaJoven('Marcos', 'Doe', 54677843, 223, '15%')
+nueva_cuentajoven.registrarse()
 
 
 
